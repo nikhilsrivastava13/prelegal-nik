@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+}
+
+@layer components {
+  .nda-preview h1 {
+    @apply text-2xl font-bold mb-4 text-slate-900;
+  }
+  .nda-preview h2 {
+    @apply text-xl font-semibold mb-3 mt-6 text-slate-800;
+  }
+  .nda-preview h3 {
+    @apply text-lg font-semibold mb-2 mt-4 text-slate-800;
+  }
+  .nda-preview p {
+    @apply mb-3 leading-relaxed text-slate-700;
+  }
+  .nda-preview strong {
+    @apply font-semibold text-slate-900;
+  }
+  .nda-preview ul {
+    @apply list-disc pl-6 mb-3;
+  }
+  .nda-preview li {
+    @apply mb-1 text-slate-700;
+  }
+  .nda-preview table {
+    @apply w-full border-collapse border border-slate-300 my-4;
+  }
+  .nda-preview th,
+  .nda-preview td {
+    @apply border border-slate-300 px-4 py-2 text-left text-sm;
+  }
+  .nda-preview th {
+    @apply bg-slate-100 font-semibold;
+  }
+  .nda-preview hr {
+    @apply my-6 border-slate-300;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
