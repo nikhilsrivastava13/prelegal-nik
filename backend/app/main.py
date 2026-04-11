@@ -22,7 +22,13 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup() -> None:
-    os.makedirs("/app/data", exist_ok=True)
+    # Ensure the SQLite data directory exists (path extracted from DATABASE_URL)
+    db_url = os.getenv("DATABASE_URL", "")
+    if db_url.startswith("sqlite:///"):
+        db_path = db_url.replace("sqlite:///", "")
+        data_dir = os.path.dirname(db_path)
+        if data_dir:
+            os.makedirs(data_dir, exist_ok=True)
     create_tables()
 
 
